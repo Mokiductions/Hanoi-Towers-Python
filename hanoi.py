@@ -1,5 +1,5 @@
 # En esta torre poner los discos
-Torre1 = ([4,3,2,1], "Torre 1")
+Torre1 = ([], "Torre 1")
 Torre2 = ([], "Torre 2")
 Torre3 = ([], "Torre 3")
 
@@ -20,8 +20,17 @@ def printTowers():
     print(Torre2[1],Torre2[0])
     print(Torre3[1],Torre3[0])
 
+def fillTowers(size):
+    for i in range(size):
+        Torre1[0].append(size)
+        size = size - 1
+
+# Pregunta la cantidad de discos e inicializa
+size = int(input("Cuántos discos quieres poner? "))
+fillTowers(size)
+
 # Muestra el estado inicial de las torres
-#printTowers()
+printTowers()
 
 # Llamada a la función de resolución
 solve(len(Torre1[0]),Torre1,Torre2,Torre3)
