@@ -3,9 +3,9 @@ Torre1 = ([4,3,2,1], "Torre 1")
 Torre2 = ([], "Torre 2")
 Torre3 = ([], "Torre 3")
 
-def hanoi(n, t1, t2, t3):
+def solve(n, t1, t2, t3):
     if n > 0:
-        hanoi(n - 1, t1, t3, t2)
+        solve(n - 1, t1, t3, t2)
         if t1[0]:
             disk = t1[0].pop()
             print("Movido disco [" + str(disk) + "] de la " + t1[1] + " a la " + t3[1])
@@ -13,7 +13,7 @@ def hanoi(n, t1, t2, t3):
             # Comentar la siguiente línea si se quiere desactivar la visualización del
             # estado de las torres a cada paso
             printTowers()
-        hanoi(n - 1, t2, t1, t3)
+        solve(n - 1, t2, t1, t3)
 
 def printTowers():
     print(Torre1[1],Torre1[0])
@@ -24,7 +24,7 @@ def printTowers():
 #printTowers()
 
 # Llamada a la función de resolución
-hanoi(len(Torre1[0]),Torre1,Torre2,Torre3)
+solve(len(Torre1[0]),Torre1,Torre2,Torre3)
 
 # Muestra el estado final de las torres
 #printTowers()
